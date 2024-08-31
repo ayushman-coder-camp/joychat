@@ -1,0 +1,43 @@
+{% extends 'main.html' %} {% block title %} Chat Room {% endblock %}
+{% block container %}
+    <div class="room-container">
+        <h1>Chat Room {{ roomcode }}</h1>
+        <div class="messages"></div>
+        <div class="input-div">
+            <input type="text" class="msg-input" name="msg-input" placeholder="Send a message">
+            <button type="submit" name="send-btn" onclick="sendMsg()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <script>
+        var socketio = io()
+
+        const messages = document.querySelector('.messages')
+        const createMsg = (name, message) => {
+            const html = `
+            <div class='message'>
+                <div class='content'>
+                    <span class='member-name'>${name}</span>
+                    <span class='msg'>${message}</span>
+                </div>
+                <span class='date'>${new Date().toLocaleDateString()} | ${new Date().toLocaleTimeString()}</span>
+            </div><br>
+            `
+
+            messages.innerHTML += html
+        }
+
+        socketio.on('message', (data) => {
+            createMsg(data.name, data.message)
+        })
+
+        const sendMsg = () => {
+            const messageInput = document.querySelector('.msg-input')
+            if (!messageInput || messageInput.value === '') {
+                return
+            }
+
+            socketio.emit('message', { msg_data: messageInput.value })
+            messageInput.value = ''
+        }
+    </script>
+{% endblock %}

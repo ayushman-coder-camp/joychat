@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+
+* {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+}
+
+body {
+    background: url(/static/img/bg.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.enter-form {
+    background: #fff;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.enter-form h1 {
+    text-align: center;
+}
+
+.enter-form input {
+    width: 80%;
+    padding: 10px;
+}
+
+.enter-form button {
+    padding: 10px;
+    background: #5ce1e6;
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.enter-form button:hover {
+    background: #272727;
+}
+
+.error {
+    color: #f00;
+    text-align: center;
+}
+
+.room-container {
+    background: rgba(255, 255, 255, 0.5);
+    border: 5px rgba(255, 255, 255, 0.75) solid;
+    border-radius: 10px;
+    width: 50%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.room-container .messages {
+    overflow-y: scroll;
+    flex: 0.9;
+    width: 100%;
+}
+
+.room-container .input-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.input-div input {
+    width: 80%;
+    padding: 10px;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    border: none;
+    outline: none;
+}
+
+.input-div button {
+    padding: 10px;
+    background: #5ce1e6;
+    color: #fff;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border: none;
+    cursor: pointer;
+}
+
+.messages .message {
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message .content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.content .msg {
+    background: #5ce1e6;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 10px;
+}

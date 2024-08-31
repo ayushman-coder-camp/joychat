@@ -1,0 +1,13 @@
+{% extends 'main.html' %} {% block title %} JoyChat {% endblock %}
+{% block container %}
+    <form method="post" class="enter-form">
+        <div class="error">{{ errorText }}</div>
+        <h1>Enter or Create a Chat Room</h1>
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" value="{{ name }}" placeholder="Enter first or full name"><br>
+        <label for="name">Room Code:</label><br>
+        <input type="text" name="code" value="{{ code }}" placeholder="Enter room code (if enter a room)"><br>
+        <button type="submit" name="enter-btn">Enter Room</button><br>
+        <button type="submit" name="create-btn">Create Room</button>
+    </form>
+{% endblock %}
